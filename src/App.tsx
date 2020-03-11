@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
+import React from "react";
+import styled from "styled-components"
+import {Head } from "./components/Head"
+import background from './resources/background.jpg';
+import me from "./resources/zack.png"
 import './App.css';
 
-function App() {
+type Props = {
+  className? : string
+}
+
+const AppWrapper = styled.div`
+background-image: url(${background});
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 19%;
+`
+
+function App({className} : Props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppWrapper className={`App ${className}`}>
+      <Head title="Hello" isActive={true} />
+      <div className={`hero ${className}`} >
+        <div className={`avatar ${className}`} />
+        <h1>Zack Sarver</h1>
+        <h4>Full-Stack Developer</h4>
+      </div>
+    </AppWrapper>
   );
 }
 
-export default App;
+export default styled(App)`
+.hero{
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -100px 0 0 -100px;
+}
+.avatar {
+  background-image: url(${me});
+  background-size: cover;
+  height: 200px;
+  width: 200px;
+}
+`;
