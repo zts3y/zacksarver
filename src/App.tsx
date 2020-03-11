@@ -20,7 +20,7 @@ background-image: url(${background});
 function App({className} : Props) {
   return (
     <AppWrapper className={`App ${className}`}>
-      <Head title="Hello" isActive={true} />
+      <Head />
       <div className={`hero ${className}`} >
         <div className={`avatar ${className}`} />
         <h1>Zack Sarver</h1>
@@ -32,7 +32,9 @@ function App({className} : Props) {
 
 export default styled(App)`
 .hero{
-
+  display: flex;
+  align-items: center;
+  flex-flow: column;
   position: absolute;
   top: 50%;
   left: 50%;
